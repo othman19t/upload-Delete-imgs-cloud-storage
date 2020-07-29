@@ -1,6 +1,6 @@
 const { format } = require("util");
 const express = require("express"); // npm i express
-const Multer = require("multer"); // npm i multer@1.4.2
+const Multer = require("multer"); // npm i multer@1.4.2 
 const cors = require("cors"); // npm i cors
 const uid = require("uid"); // npm i uid
 
@@ -14,14 +14,15 @@ const storage = new Storage({
 });
 const bucket = storage.bucket("inshirah");
 /* end auth */
+const multer = Multer();
 
 /** multer config*/
-const multer = Multer({
-  storage: Multer.memoryStorage(),
-  limits: {
-    fileSize: 5 * 1024 * 1024, // no larger than 5mb, you can change as needed.
-  },
-});
+// const multer = Multer({
+//   // storage: Multer.memoryStorage(),
+//   limits: {
+//     //  fileSize: 5 * 1024 * 1024, // no larger than 5mb, you can change as needed. TODO: cancel this if you don't want to limit the size of file
+//   },
+// });
 
 app.use(cors());
 
